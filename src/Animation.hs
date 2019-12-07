@@ -9,7 +9,7 @@ animation t =     offset (-400)   200  (dogwheel t)
               <@> offset (-300)  0     (text "Welcome to CS141!")
 
 -- A load of dogs spinning around
-dogwheel t = foldr (<@>) blank $ fmap spinningDog [ t, t + 45 .. t + 315 ]
+dogwheel t = superimposeAll [spinningDog x | x <- [t, t + 45 .. t + 315 ] ]
 
 -- One single rotating dog
 spinningDog t = rotate t (offset 100 0 dog)

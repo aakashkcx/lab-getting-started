@@ -2,7 +2,7 @@
 
 module Layout where
 
-import Graphics.Gloss (Picture (Pictures), pictures, translate)
+import Graphics.Gloss (Picture (Pictures), pictures, translate, blank)
 
 
 -- Our Arrange type represents some arrangement of images
@@ -33,6 +33,9 @@ infixr 2 <@>
 -- Superimposition
 (<@>) :: Image -> Image -> Image
 a <@> b = Supp a b
+
+superimposeAll :: [Image] -> Image
+superimposeAll = foldr (<@>) (Leaf blank)
 
 -- Assume images to be exactly 200x125 for simplicity
 imgW :: Int
