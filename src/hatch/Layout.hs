@@ -1,9 +1,17 @@
+--------------------------------------------------------------------------------
+-- Functional Programming (CS141)                                             --
+-- Lab: Getting started                                                       --
+--------------------------------------------------------------------------------
+
 {-# LANGUAGE DeriveFunctor #-}
 
 module Layout where
 
+--------------------------------------------------------------------------------
+
 import Graphics.Gloss (Picture (Pictures), pictures, translate, blank)
 
+--------------------------------------------------------------------------------
 
 -- Our Arrange type represents some arrangement of images
 data Arrange a = Vert (Arrange a) (Arrange a)
@@ -12,11 +20,10 @@ data Arrange a = Vert (Arrange a) (Arrange a)
                | Leaf a
     deriving (Show, Functor)
 
-
 -- We define a type synonym just to make dealing with Images a little nicer
 type Image = Arrange Picture
 
-
+--------------------------------------------------------------------------------
 -- Combinator functions
 
 -- Horizontal composition
@@ -85,4 +92,7 @@ layout (Leaf p  ) = [((0,0), p)]
 -- | `render` @pps translates pictures in @pps by their absolute
 -- position and combines them into one picture.
 render :: [(Pos, Picture)] -> Picture
-render = pictures . map (\(p,i) -> translate (fromIntegral $ left p) (fromIntegral $ top p) i)
+render = pictures . map (\(p,i) -> 
+    translate (fromIntegral $ left p) (fromIntegral $ top p) i)
+
+--------------------------------------------------------------------------------

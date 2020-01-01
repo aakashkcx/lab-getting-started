@@ -1,7 +1,16 @@
+--------------------------------------------------------------------------------
+-- Functional Programming (CS141)                                             --
+-- Lab: Getting started                                                       --
+--------------------------------------------------------------------------------
+
 module Transforms where
+
+--------------------------------------------------------------------------------
 
 import Layout
 import qualified Graphics.Gloss as Gloss
+
+--------------------------------------------------------------------------------
 
 -- Rotate an image in degrees.
 -- Wraps the Gloss Picture rotation.
@@ -16,3 +25,5 @@ scale s = fmap $ Gloss.scale s s
 
 mirror :: Image -> Image
 mirror = fmap $ Gloss.scale (-1) 1
+
+--------------------------------------------------------------------------------

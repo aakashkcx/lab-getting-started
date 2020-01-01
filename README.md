@@ -1,2 +1,3 @@
-# lab-getting-started
+# Lab: Getting started
+
 Code for Lab: Getting Started

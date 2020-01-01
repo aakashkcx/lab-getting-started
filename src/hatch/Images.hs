@@ -1,4 +1,11 @@
+--------------------------------------------------------------------------------
+-- Functional Programming (CS141)                                             --
+-- Lab: Getting started                                                       --
+--------------------------------------------------------------------------------
+
 module Images where
+
+--------------------------------------------------------------------------------
 
 import qualified Graphics.Gloss as Gloss 
     (blank, text, scale, 
@@ -11,6 +18,8 @@ import Layout
 import Transforms
 
 import Data.Maybe (fromMaybe)
+
+--------------------------------------------------------------------------------
 
 loadImage :: String -> Image
 loadImage name = scale 0.1 $ Leaf $ png 
@@ -33,7 +42,6 @@ duck = loadImage "duck"
 goose :: Image
 goose = loadImage "goose"
 
-
 blank :: Image
 blank = Leaf $ Gloss.blank
 
@@ -46,3 +54,5 @@ text t = Leaf $ Gloss.pictures [
             | x <- [-2..2]
             , y <- [-2..2]
         ]
+
+--------------------------------------------------------------------------------
